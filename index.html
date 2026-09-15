@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HDMapVLM is a vision-language model for updating aligned prior HD maps from surround-view camera observations.">
+  <meta name="theme-color" content="#ffffff">
+  <title>HDMapVLM</title>
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+  <main>
+    <header class="publication-header">
+      <div class="container narrow">
+        <h1 class="publication-title">
+          <span class="brand">HDMapVLM</span>
+        </h1>
+        <p class="publication-subtitle">
+          Vision-Language Model for Prior-Guided HD Map Updating
+        </p>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="overview-title">
+      <div class="container text-column">
+        <h2 id="overview-title">Overview</h2>
+        <p>
+          High-definition maps provide essential geometric context for autonomous
+          driving, but their contents become stale as road layouts change. HDMapVLM
+          updates an aligned yet potentially outdated prior HD map from seven
+          synchronized surround-view camera observations.
+        </p>
+        <p>
+          The method formulates map updating as multimodal autoregressive sequence
+          generation. Camera images, a textual task instruction, and a serialized
+          prior vector map form a shared context. The model then generates the
+          complete current map, preserving stable structures, removing obsolete
+          elements, and inserting newly observed dividers, pedestrian crossings,
+          and road boundaries.
+        </p>
+      </div>
+    </section>
+
+    <section class="section method-section" aria-labelledby="method-title">
+      <div class="container wide">
+        <h2 id="method-title">Method</h2>
+        <figure class="method-figure">
+          <a href="static/images/hdmapvlm-method.png" aria-label="Open the HDMapVLM method diagram at full resolution">
+            <img
+              src="static/images/hdmapvlm-method.png"
+              alt="HDMapVLM method overview showing seven camera images, a language instruction, and an outdated prior HD map encoded as multimodal tokens. The model autoregressively generates map tokens that are decoded into the current HD map. A polyline approximation pipeline simplifies, densifies, and quantizes map geometry."
+              width="3625"
+              height="3640"
+            >
+          </a>
+          <figcaption>
+            HDMapVLM combines seven surround-view images, a task instruction, and
+            an aligned but structurally outdated prior map. Prior and target
+            polylines share the same approximation and tokenization pipeline, and
+            the model autoregressively predicts the complete current vector map.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container text-column">
+      <p>
+        Website template adapted from
+        <a href="https://nerfies.github.io/">Nerfies</a> under
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
