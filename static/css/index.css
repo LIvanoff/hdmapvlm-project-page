@@ -115,7 +115,8 @@ p {
 }
 
 .method-figure {
-  margin: 0;
+  width: min(100%, 900px);
+  margin: 0 auto;
 }
 
 .method-figure > a {
